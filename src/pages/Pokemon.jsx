@@ -25,20 +25,20 @@ const Pokemon = () => {
   ) : (
     <div>
       {data.results.map((pokemonlist, index) => {
-        //console.log(pokemonlist);
-        console.log("test " + index.toString());
-        let newimgpokemon =
+        console.log(pokemonlist);
+        //  console.log("test " + index.toString());
+        const newindex = index + 1;
+        const newimgpokemon =
           "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/XXX.png".replace(
             "XXX",
-            index.toString()
+            newindex.toString()
           );
 
-        //console.log("newimgpokemon" + newimgpokemon);
-
+        console.log("newimgpokemon" + newimgpokemon);
         return (
           <Link to={`/pokemon/${pokemonlist.name}`}>
             <article key={pokemonlist.name}>
-              <p key={pokemonlist.name}> {pokemonlist.name}</p>
+              <p> {pokemonlist.name}</p>
               <img src={newimgpokemon} />
             </article>
           </Link>

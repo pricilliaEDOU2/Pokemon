@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Nomdupokemon = () => {
   const [data, setData] = useState({});
@@ -29,12 +30,25 @@ const Nomdupokemon = () => {
   ) : (
     <div>
       <p> {data.name}</p>
-      {data.types.map((type) => {
-        console.log(type);
+
+      {data.types.map((typeOfPokemon, index) => {
+        console.log(typeOfPokemon);
+        console.log(typeOfPokemon.slot);
+        // console.log(data.sprites.back_default);
+        console.log(data.sprites.front_default);
+
+        const typePokemon = data.sprites.front_default;
+        console.log(typePokemon);
+
         return (
-          <>
-            <button>{type.types}</button>
-          </>
+          <div key={index}>
+            <Link to={`pokemon/${typeOfPokemon}`}>
+              {typeOfPokemon.type.name}
+            </Link>
+            {typeOfPokemon.slot === 1 && (
+              <img src={typePokemon} alt="typePokemon" />
+            )}
+          </div>
         );
       })}
     </div>
