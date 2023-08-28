@@ -24,26 +24,30 @@ const Pokemon = () => {
     <p>Loading ...</p>
   ) : (
     <div>
-      {data.results.map((pokemonlist, index) => {
-        console.log(pokemonlist);
-        //  console.log("test " + index.toString());
-        const newindex = index + 1;
-        const newimgpokemon =
-          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/XXX.png".replace(
-            "XXX",
-            newindex.toString()
-          );
+      <h1>POKEMONS</h1>
+      <div className="presentation">
+        {data.results.map((pokemonlist, index) => {
+          console.log(pokemonlist);
 
-        console.log("newimgpokemon" + newimgpokemon);
-        return (
-          <Link to={`/pokemon/${pokemonlist.name}`}>
-            <article key={pokemonlist.name}>
-              <p> {pokemonlist.name}</p>
-              <img src={newimgpokemon} />
-            </article>
-          </Link>
-        );
-      })}
+          const newindex = index + 1;
+          const newimgpokemon =
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/XXX.png".replace(
+              "XXX",
+              newindex.toString()
+            );
+
+          return (
+            <section>
+              <Link to={`/pokemon/${pokemonlist.name}`}>
+                <article className="item" key={pokemonlist.name}>
+                  <p> {pokemonlist.name}</p>
+                  <img src={newimgpokemon} />
+                </article>
+              </Link>
+            </section>
+          );
+        })}
+      </div>
     </div>
   );
 };

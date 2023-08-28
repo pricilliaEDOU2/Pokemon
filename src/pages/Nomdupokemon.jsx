@@ -15,7 +15,7 @@ const Nomdupokemon = () => {
         const response = await axios.get(
           `https://pokeapi.co/api/v2/pokemon/${id}`
         );
-        console.log(response.data);
+        console.log("verif" + response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -29,25 +29,32 @@ const Nomdupokemon = () => {
     <p>Loading ...</p>
   ) : (
     <div>
-      <p> {data.name}</p>
-
+      <h1>POKEMON</h1>
+      <div className="presentation"></div>
       {data.types.map((typeOfPokemon, index) => {
-        console.log(typeOfPokemon);
-        console.log(typeOfPokemon.slot);
-        // console.log(data.sprites.back_default);
-        console.log(data.sprites.front_default);
+        // console.log(typeOfPokemon);
+        console.log(typeOfPokemon.type.name);
+
+        // console.log(data.sprites.front_default);
 
         const typePokemon = data.sprites.front_default;
-        console.log(typePokemon);
+        //  console.log(typePokemon);
 
         return (
           <div key={index}>
-            <Link to={`pokemon/${typeOfPokemon}`}>
+            {typeOfPokemon.slot === 1 && (
+              <div
+                className="
+            item"
+              >
+                <p> {data.name}</p>
+                <img src={typePokemon} alt="typePokemon" />
+              </div>
+            )}
+
+            <Link to={`pokemon/${typeOfPokemon.type.name}`}>
               {typeOfPokemon.type.name}
             </Link>
-            {typeOfPokemon.slot === 1 && (
-              <img src={typePokemon} alt="typePokemon" />
-            )}
           </div>
         );
       })}

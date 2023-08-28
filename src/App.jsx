@@ -7,7 +7,8 @@ import "./App.css";
 import Home from "./pages/Home";
 import Pokemon from "./pages/Pokemon";
 import Nomdupokemon from "./pages/Nomdupokemon";
-import Types from "./pages/Types";
+import Type from "./pages/Type";
+import Typepokemon from "./pages/Typepokemon";
 //Components
 
 import Header from "./components/Header";
@@ -19,11 +20,11 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route>
-            <Route path="/pokemon" element={<Pokemon />} />
-            <Route path="/pokemon/:id" element={<Nomdupokemon />} />
-          </Route>
-          <Route path="/types" element={<Types />} />
+
+          <Route path="/pokemon" element={<Pokemon />} />
+          <Route path="/pokemon/:id" element={<Nomdupokemon />} />
+          <Route path="/type" element={<Type />} />
+          <Route path="/type/:id" element={<Typepokemon />} />
         </Routes>
       </Router>
     </>

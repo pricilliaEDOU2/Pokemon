@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const Types = () => {
+const Type = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -25,12 +25,18 @@ const Types = () => {
   ) : (
     <div>
       <h1>Types</h1>
-      {data.results.map((typespokemon) => {
-        console.log(typespokemon);
-        return <button>{typespokemon.name}</button>;
-      })}
+      <div className="presentation">
+        {data.results.map((typespokemon, index) => {
+          console.log(typespokemon);
+          return (
+            <div className="item" key={index}>
+              <Link to={`/type/${typespokemon.name}`}>{typespokemon.name}</Link>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
 
-export default Types;
+export default Type;

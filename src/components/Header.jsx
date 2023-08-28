@@ -11,7 +11,7 @@ const Header = () => {
           </Link>
           <nav>
             <Link to="/pokemon">Pokemons</Link>
-            <Link to="/types">Types</Link>
+            <Link to="/type">Types</Link>
           </nav>
         </div>
       </header>
