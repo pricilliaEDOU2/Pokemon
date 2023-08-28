@@ -31,20 +31,17 @@ const Typepokemon = () => {
       <h1>{data.name}</h1>
 
       <section>
-        {data.pokemon.map((elem, index) => {
-          console.log(index);
-          const newindex = index + 1;
+        {data.pokemon.map((elem) => {
           const newimgpokemon =
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/XXX.png".replace(
               "XXX",
-              newindex
+              elem.pokemon.name
             );
           console.log(newimgpokemon);
 
           return (
             <div key={elem.pokemon.name}>
               <p>{elem.pokemon.name}</p>
-              <img src={newimgpokemon} />
             </div>
           );
         })}

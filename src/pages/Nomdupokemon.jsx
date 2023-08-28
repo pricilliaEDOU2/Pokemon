@@ -52,7 +52,7 @@ const Nomdupokemon = () => {
               </div>
             )}
 
-            <Link to={`pokemon/${typeOfPokemon.type.name}`}>
+            <Link to={`/type/${typeOfPokemon.type.name}`}>
               {typeOfPokemon.type.name}
             </Link>
           </div>
