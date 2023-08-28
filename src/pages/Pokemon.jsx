@@ -35,6 +35,7 @@ const Pokemon = () => {
               "XXX",
               newindex.toString()
             );
+          console.log(newimgpokemon);
 
           return (
             <section>
